@@ -10,15 +10,14 @@ export default function Home() {
     setLoading(true);
     try {
       // Spring Boot 서버로 POST 요청 전송
-      const response = await fetch('http://localhost:8080/api/memberships/register',
+      const response = await fetch('http://localhost:8080/api/userMembership/register',
       {
         method: 'POST',
         headers : {
           'Content-Type' : 'application/json',
         },
         body : JSON.stringify({
-          userId : 1,
-          membershipId : 1
+          userMembershipDto : {userId : 1, membershipId : 1}
         }),
       });
 
