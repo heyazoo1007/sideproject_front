@@ -169,6 +169,7 @@
     --spacing: .25rem;
     --container-xs: 20rem;
     --container-md: 28rem;
+    --container-lg: 32rem;
     --container-3xl: 48rem;
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
@@ -481,6 +482,10 @@
 
   .max-w-3xl {
     max-width: var(--container-3xl);
+  }
+
+  .max-w-lg {
+    max-width: var(--container-lg);
   }
 
   .max-w-md {

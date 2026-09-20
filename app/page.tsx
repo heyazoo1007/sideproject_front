@@ -17,10 +17,11 @@ export default function Home() {
           'Content-Type' : 'application/json',
         },
         body : JSON.stringify({
-          userMembershipDto : {userId : 1, membershipId : 1}
+          userId : 2, 
+          membershipId : 1
         }),
       });
-
+      console.log(response);
       if (response.ok) {
         alert('Success joining membership')
       } else {
@@ -42,8 +43,8 @@ export default function Home() {
             Welcome to The NEW 2026 BookClub!
             {" "}
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Please click the below button to join our newest member. {" "}
+          <p className="max-w-lg text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+            Please click the below button and join our newest member. {" "}
           </p>
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
