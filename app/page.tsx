@@ -1,6 +1,7 @@
 'use client';
 import Image from "next/image";
 import { useState } from 'react';
+import {postRequest} from '@/lib/api';
 
 
 export default function Home() {
@@ -9,6 +10,8 @@ export default function Home() {
   const handleRegister = async() => {
     setLoading(true);
     try {
+
+      // await postRequest('/api/userMembership/register', { userId: 1, membershipId: 1 });
       // Spring Boot 서버로 POST 요청 전송
       const response = await fetch('http://localhost:8080/api/userMembership/register',
       {
@@ -17,18 +20,18 @@ export default function Home() {
           'Content-Type' : 'application/json',
         },
         body : JSON.stringify({
-          userId : 2, 
+          userId : 1, 
           membershipId : 1
         }),
       });
-      console.log(response);
+
+      const result = await response.json();
       if (response.ok) {
-        alert('Success joining membership')
+        alert('Join successed')
       } else {
-        alert('Join Fail');
+        alert(`Join failed : ${result.message}`);
       }
     } catch (error) {
-      console.error('Network Error', error);
       alert('Unable to connect Network');
     } finally {
       setLoading(false);
